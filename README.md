@@ -2,13 +2,13 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-2406.17818-b31b1b.svg)](https://arxiv.org/abs/2406.17818)
 
-This project hosts the code for paper [Temporal Prototype-Aware Learning for Active Voltage Control on Power Distribution Networks](https://arxiv.org/abs/2207.01955).
+This project hosts the code for the paper [Temporal Prototype-Aware Learning for Active Voltage Control on Power Distribution Networks](https://arxiv.org/abs/2207.01955).
 
 
 
 ## Overview
 
-![](.\paper_contents\model_new.png)
+![model_fig](https://github.com/Canyizl/TPA-for-AVC/blob/main/paper_contents/model_new.png)
 
 **Abstract:** Active Voltage Control (AVC) on the Power Distribution Networks (PDNs) aims to stabilize the voltage levels to ensure efficient and reliable operation of power systems. With the increasing integration of distributed energy resources, recent efforts have explored employing multi-agent reinforcement learning (MARL) techniques to realize effective AVC. Existing methods mainly focus on the acquisition of short-term AVC strategies, i.e., only learning AVC within the short-term training trajectories of a singular diurnal cycle. However, due to the dynamic nature of load demands and renewable energy, the operation states of real-world PDNs may exhibit significant distribution shifts across varying timescales (e.g., daily and seasonal changes). This can render those short-term strategies suboptimal or even obsolete when performing continuous AVC over extended periods. In this paper, we propose a novel temporal prototype-aware learning method, abbreviated as TPA, to learn time-adaptive AVC under short-term training trajectories. At the heart of TPA are two complementary components, namely multi-scale dynamic encoder and temporal prototype-aware policy, that can be readily incorporated into various MARL methods. The former component integrates a stacked transformer network to learn underlying temporal dependencies at different timescales of the PDNs, while the latter implements a learnable prototype matching mechanism to construct a dedicated AVC policy that can dynamically adapt to the evolving operation states. Experimental results on the AVC benchmark with different PDN sizes demonstrate that the proposed TPA surpasses the state-of-the-art counterparts not only in terms of control performance but also by offering model transferability. Our code is available at https://github.com/Canyizl/TPA-for-AVC.
 
