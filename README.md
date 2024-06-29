@@ -2,7 +2,7 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-2406.17818-b31b1b.svg)](https://arxiv.org/abs/2406.17818)
 
-Official codebase for the paper [Temporal Prototype-Aware Learning for Active Voltage Control on Power Distribution Networks](https://arxiv.org/abs/2207.01955).
+Official codebase for the paper [Temporal Prototype-Aware Learning for Active Voltage Control on Power Distribution Networks](https://arxiv.org/abs/2406.17818).
 
 
 
