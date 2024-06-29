@@ -1,8 +1,8 @@
-# [KDD] Temporal Prototype-Aware Learning for Active Voltage Control on Power Distribution Networks
+# [KDD 2024] Temporal Prototype-Aware Learning for Active Voltage Control on Power Distribution Networks
 
 [![arXiv](https://img.shields.io/badge/arXiv-2406.17818-b31b1b.svg)](https://arxiv.org/abs/2406.17818)
 
-This project hosts the code for the paper [Temporal Prototype-Aware Learning for Active Voltage Control on Power Distribution Networks](https://arxiv.org/abs/2207.01955).
+Official codebase for the paper [Temporal Prototype-Aware Learning for Active Voltage Control on Power Distribution Networks](https://arxiv.org/abs/2207.01955).
 
 
 
@@ -100,3 +100,22 @@ The meanings of the arguments:
 * `--save-path` is the path to save the model and configures.
 * `--test-mode` is the test mode, e.g. `test_data` is the previous testing mode on day cycle. `long`. `year` means longer testing cycles. 
 * `--test-day` is the day that you would like to do the test. Note that it is only activated if the `--test-mode` is `single`.
+
+
+## Citation
+
+If you find this work useful for your research, please cite our paper:
+
+```
+@inproceedings{xu2024TPA,
+  title     = {Temporal Prototype-Aware Learning for Active Voltage Control on Power Distribution Networks},
+  author    = {Xu, Feiyang and Liu, Shunyu and Qing, Yunpeng and Zhou, Yihe and Wang, Yuwen and Song, Mingli},
+  booktitle = {ACM SIGKDD Conference on Knowledge Discovery and Data Mining},
+  year      = {2024},
+}
+```
+
+## Contact
+
+Please feel free to contact me via email (<xufeiyang@zju.edu.cn>, <liushunyu@zju.edu.cn>) if you are interested in my research :)
+
