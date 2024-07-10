@@ -47,7 +47,6 @@ class PGTrainer(object):
             params.append(
                 {'params': self.behaviour_net.encoder.parameters(), 'lr': args.encoder_lrate})
         self.policy_optimizer = optim.RMSprop(params, alpha=0.99, eps=1e-5)
-        self.policy_lrsc = optim.lr_scheduler.StepLR(self.policy_optimizer, 60 * 200, gamma=0.5, last_epoch=-1)
         # value optim
         params = []
         if hasattr(self.behaviour_net.value_dicts[0], 'cost_head'):
@@ -65,7 +64,6 @@ class PGTrainer(object):
             params.append(
                 {'params': self.behaviour_net.encoder.parameters(), 'lr': args.encoder_lrate})
         self.value_optimizer = optim.RMSprop(params, alpha=0.99, eps=1e-5)
-        self.value_lrsc = optim.lr_scheduler.StepLR(self.value_optimizer, 1200 * 200, gamma=0.5, last_epoch=-1)
         # mixer optim
         if self.args.mixer:
             self.mixer_optimizer = optim.RMSprop(
@@ -85,7 +83,6 @@ class PGTrainer(object):
             assert self.args.encoder == True
             self.auxiliary_optimizer = optim.RMSprop([{'params': self.behaviour_net.auxiliary_dicts.parameters(), 'lr': args.auxiliary_lrate}, {
                                                      'params': self.behaviour_net.encoder.parameters(), 'lr': args.auxiliary_lrate}], alpha=0.99, eps=1e-5)
-            self.auxiliary_lrsc = optim.lr_scheduler.StepLR(self.auxiliary_optimizer, 1200 * 200, gamma=0.5, last_epoch=-1)
         self.init_action = th.zeros(
             1, self.args.agent_num, self.args.action_dim).to(self.device)
         self.steps = 0
@@ -166,7 +163,7 @@ class PGTrainer(object):
         param = self.policy_optimizer.param_groups[0]['params']
         policy_grad_norms = get_grad_norm(self.args, param)
         self.policy_optimizer.step()
-        # self.policy_lrsc.step()
+
 
         # np.array(policy_grad_norms).mean()
         stat['mean_train_policy_grad_norm'] = policy_grad_norms.item()
@@ -183,7 +180,6 @@ class PGTrainer(object):
         param = self.value_optimizer.param_groups[0]['params']
         value_grad_norms = get_grad_norm(self.args, param)
         self.value_optimizer.step()
-        #self.value_lrsc.step() 
         stat['mean_train_value_grad_norm'] = value_grad_norms.item()
         stat['mean_train_value_loss'] = value_loss.clone().mean().item()
 
@@ -213,7 +209,6 @@ class PGTrainer(object):
         param = self.auxiliary_optimizer.param_groups[0]['params']
         auxiliary_grad_norms = get_grad_norm(self.args, param)
         self.auxiliary_optimizer.step()
-        #self.auxiliary_lrsc.step()
         # np.array(policy_grad_norms).mean()
         stat['mean_train_auxiliary_grad_norm'] = auxiliary_grad_norms.item()
         stat['mean_train_auxiliary_loss'] = auxiliary_loss.clone().mean().item()
