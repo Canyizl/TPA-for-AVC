@@ -92,7 +92,7 @@ python test.py --save-path trial/model_save --alg tpamaddpg --seed 53 --alias ex
 
 The meanings of the arguments:
 
-* `--alg` is the MARL algorithm, e.g. `maddpg`, `matd3`, `icstransmaddpg`, `icstransmatd3`.
+* `--alg` is the MARL algorithm, e.g. `maddpg`, `matd3`, `tpamaddpg`, `tpamadt3`.
 * `--alias` is the alias to distinguish different experiments. We give the `example322tpa` as the pretrained ckpt for 322-bus.
 * `--scenario` is the power system on which you like to train, e.g. `case141_3min_final`, `case322_3min_final`.
 * `--qweight` is the q_weight used in training. We recommend 0.01 for case141 and 0.1 for case322.
